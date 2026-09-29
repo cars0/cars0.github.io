@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plinko Roguelite</title>
+<link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <div id="hud">
+    <div id="hud-left">
+      <div id="currency">💰 <span id="currency-value">0</span></div>
+      <div id="round-info">
+        <span id="round-label">Round 1</span>
+        <div id="round-goal-bar"><div id="round-goal-fill"></div></div>
+        <span id="round-goal-text"></span>
+      </div>
+    </div>
+    <div id="debug"></div>
+  </div>
+
+  <button id="shop-toggle">🛒 Shop</button>
+  <button id="progress-toggle">🏆 Progress</button>
+  <button id="settings-toggle" aria-label="Settings">⚙️</button>
+
+  <div id="placement-banner">
+    <span id="placement-text"></span>
+    <button id="placement-cancel">Cancel</button>
+  </div>
+
+  <div id="round-end-banner">
+    <div id="round-end-title"></div>
+    <div id="round-end-detail"></div>
+    <div id="round-end-chest"></div>
+  </div>
+
+  <div id="achievement-toast">
+    <span id="achievement-toast-icon">🏆</span>
+    <div>
+      <div id="achievement-toast-title">Achievement unlocked!</div>
+      <div id="achievement-toast-detail"></div>
+    </div>
+  </div>
+
+  <div id="event-banner">
+    <span id="event-banner-text"></span>
+  </div>
+
+  <div id="board-wrap">
+    <canvas id="board"></canvas>
+  </div>
+
+  <div id="inventory-tray">
+    <div id="inventory-label">Inventory — tap or drag onto a peg</div>
+    <div id="inventory-items"></div>
+  </div>
+
+  <div id="controls">
+    <div id="queue-pips"></div>
+    <button id="drop-btn" disabled>Drop</button>
+  </div>
+
+  <div id="shop-backdrop"></div>
+  <div id="shop-panel">
+    <div id="shop-header">
+      <h2>Shop</h2>
+      <button id="shop-close" aria-label="Close shop">✕</button>
+    </div>
+    <div id="shop-items">
+      <div class="shop-item" id="item-extra-balls">
+        <div class="shop-item-info">
+          <div class="shop-item-name">Extra Balls</div>
+          <div class="shop-item-desc">+1 ball drop per round</div>
+          <div class="shop-item-level">Per round: <span data-field="level"></span></div>
+        </div>
+        <button class="buy-btn" data-upgrade="extra-balls">
+          <span class="buy-label">Buy</span>
+          <span class="buy-cost" data-field="cost"></span>
+        </button>
+      </div>
+
+      <div id="shop-special-header">Special Pegs</div>
+      <div id="shop-items-special"></div>
+    </div>
+  </div>
+
+  <div id="progress-backdrop"></div>
+  <div id="progress-panel">
+    <div id="progress-header">
+      <h2>Progress</h2>
+      <button id="progress-close" aria-label="Close progress">✕</button>
+    </div>
+    <div id="progress-stats">
+      <div class="progress-stat">
+        <div class="progress-stat-value" id="stat-best-round">1</div>
+        <div class="progress-stat-label">Best Round</div>
+      </div>
+      <div class="progress-stat">
+        <div class="progress-stat-value" id="stat-lifetime-currency">0</div>
+        <div class="progress-stat-label">Lifetime Currency</div>
+      </div>
+      <div class="progress-stat">
+        <div class="progress-stat-value" id="stat-runs">0</div>
+        <div class="progress-stat-label">Runs Played</div>
+      </div>
+    </div>
+    <div id="achievement-header">Achievements</div>
+    <div id="achievement-list"></div>
+  </div>
+
+  <div id="settings-backdrop"></div>
+  <div id="settings-modal">
+    <div id="settings-header">
+      <h2>Settings</h2>
+      <button id="settings-close" aria-label="Close settings">✕</button>
+    </div>
+    <div id="settings-body">
+      <button id="reset-progress-btn">Reset All Progress</button>
+      <div id="reset-confirm">
+        <p>This permanently erases your current run <strong>and</strong> all
+        lifetime stats/achievements. This can't be undone.</p>
+        <div id="reset-confirm-actions">
+          <button id="reset-cancel-btn">Cancel</button>
+          <button id="reset-confirm-btn">Yes, erase everything</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

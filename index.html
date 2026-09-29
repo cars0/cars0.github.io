@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carson's Games</title>
+<meta name="description" content="A collection of browser games built with Claude Code." />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-card: #14171f;
+    --bg-card-hover: #1b1f2b;
+    --border: #262b38;
+    --text: #e8eaf0;
+    --text-dim: #9aa0b0;
+    --accent: #7c9eff;
+    --accent-dim: #4a5a8a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 64px 24px 32px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  header p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 8px 24px 80px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover, .card:focus-visible {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-dim);
+    transform: translateY(-3px);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+
+  .card h2 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .card p {
+    margin: 0 0 16px;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+
+  .play {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .play::after {
+    content: "→";
+    transition: transform 0.15s ease;
+  }
+
+  .card:hover .play::after {
+    transform: translateX(3px);
+  }
+
+  footer {
+    text-align: center;
+    padding: 0 24px 48px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    color: var(--text-dim);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>🎮 Carson's Games</h1>
+    <p>Browser games built with Claude Code. Pick one and play — no install, no account.</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <a class="card" href="games/swarm-keep/">
+        <div class="card-icon">🏹</div>
+        <h2>Swarm Keep</h2>
+        <p>Top-down tower defense where the threat is density, not variety. Hundreds of goblins flood the screen in a fluid swarm — your towers are always-on turrets that you aim, not place-and-forget.</p>
+        <div class="tags"><span class="tag">Tower Defense</span><span class="tag">PixiJS</span></div>
+        <span class="play">Play</span>
+      </a>
+
+      <a class="card" href="games/maze-tower-defense/">
+        <div class="card-icon">🧱</div>
+        <h2>Maze Tower Defense</h2>
+        <p>Grid-based maze-building tower defense with a Windows 95 look and feel. Wall off a path for the enemies, then defend it — nothing runs until you commit to a layout.</p>
+        <div class="tags"><span class="tag">Tower Defense</span><span class="tag">Strategy</span></div>
+        <span class="play">Play</span>
+      </a>
+
+      <a class="card" href="games/auction-empire/">
+        <div class="card-icon">🪙</div>
+        <h2>Auction Empire</h2>
+        <p>A Windows 95-styled browser sim with four tabs: bid in the Auction, work Jobs, take a chance in Gambling, and manage your Home. Build a fortune one flip at a time.</p>
+        <div class="tags"><span class="tag">Sim</span><span class="tag">Idle</span></div>
+        <span class="play">Play</span>
+      </a>
+
+      <a class="card" href="games/plinko/">
+        <div class="card-icon">🔴</div>
+        <h2>Plinko Roguelite</h2>
+        <p>An idle-adjacent roguelite built around one evolving Plinko board. Drop balls with real physics, then spend earnings to grow the board and place special pegs for chaotic bounce patterns.</p>
+        <div class="tags"><span class="tag">Roguelite</span><span class="tag">Physics</span></div>
+        <span class="play">Play</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    Built with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> · <a href="https://github.com/cars0" target="_blank" rel="noopener">@cars0</a>
+  </footer>
+</body>
+</html>
